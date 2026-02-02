@@ -39,10 +39,19 @@ if (target) {
 }
 
 // NO button runs
-function moveNo() {
-  const b = document.querySelector(".no-btn");
-  b.style.left = Math.random() * (window.innerWidth - 100) + "px";
-  b.style.top = Math.random() * (window.innerHeight - 50) + "px";
+const noBtn = document.getElementById("noBtn");
+
+if (noBtn) {
+  noBtn.addEventListener("mouseenter", moveButton);
+  noBtn.addEventListener("touchstart", moveButton);
+}
+
+function moveButton() {
+  const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
+  const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
+
+  noBtn.style.left = `${x}px`;
+  noBtn.style.top = `${y}px`;
 }
 
 // YES celebration
